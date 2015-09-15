@@ -34,16 +34,9 @@ class PostController: CommentsController, UITextFieldDelegate, UITableViewDelega
         // Do any additional setup after loading the view.
         
         if let postView = PostView.loadFromNibNamed("PostView") {
-            postView.setNeedsUpdateConstraints()
-            postView.updateConstraintsIfNeeded()
-                        
+            self.postView = postView
             postView.setNeedsLayout()
             postView.layoutIfNeeded()
-            
-            let height = postView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-            postView.frame.size.height = height
-            
-            self.postView = postView
         }
         
         if let accessoryView = InputContainerView.loadFromNibNamed("InputContainerView") {
